@@ -23,6 +23,7 @@ requireComponent.keys().forEach(fileName => {
       fileName.replace(/^\.\/(.*)\.\w+$/, "$1")
     )
   );
+
   // Register component globally
   Vue.component(
     componentName,

@@ -2,16 +2,20 @@
   <div class="col-large push-top">
     <h1>{{ thread.title }}</h1>
     <PostList :posts="posts" />
-    <PostEditor :threadId="id" @save-post="save" />
+    <PostEditor @save="addPost" :threadId="id" />
   </div>
 </template>
 
 <script>
-import SourceData from "@/data.json";
-import PostList from "@/components/PostList.vue";
-import PostEditor from "@/components/PostEditor.vue";
+import sourceData from "@/data";
+import PostList from "@/components/PostList";
+import PostEditor from "@/components/PostEditor";
+
 export default {
-  name: "thread-show",
+  components: {
+    PostList,
+    PostEditor
+  },
   props: {
     id: {
       required: true,
@@ -20,35 +24,26 @@ export default {
   },
   data() {
     return {
-      thread: SourceData.threads[this.id]
+      thread: sourceData.threads[this.id],
+      newPostText: ""
     };
-  },
-  components: {
-    PostList,
-    PostEditor
   },
   computed: {
     posts() {
-      const postsIds = Object.values(this.thread.posts);
-      return Object.values(SourceData.posts).filter(post =>
-        postsIds.includes(post[".key"])
+      const postIds = Object.values(this.thread.posts);
+      return Object.values(sourceData.posts).filter(post =>
+        postIds.includes(post[".key"])
       );
     }
   },
   methods: {
-    save(event) {
-      this.$set(SourceData.posts, event.postId, event.post);
-      this.$set(this.thread.posts, event.postId, event.postId);
-      this.$set(
-        SourceData.users[event.post.userId].posts,
-        event.postId,
-        event.postId
-      );
+    addPost(eventData) {
+      const post = eventData.post;
+      const postId = eventData.post[".key"];
+      this.$set(sourceData.posts, postId, post);
+      this.$set(this.thread.posts, postId, postId);
+      this.$set(sourceData.users[post.userId].posts, postId, postId);
     }
   }
 };
 </script>
-
-<style>
-/*  */
-</style>

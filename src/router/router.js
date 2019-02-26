@@ -3,6 +3,7 @@ import Router from "vue-router";
 import Home from "@/views/Home.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import PageThreadShow from "@/views/PageThreadShow.vue";
+import PageForum from "@/views/PageForum.vue";
 Vue.use(Router);
 
 export default new Router({
@@ -16,6 +17,12 @@ export default new Router({
       path: "/thread/:id",
       name: "thread-show",
       component: PageThreadShow,
+      props: true
+    },
+    {
+      path: "/forum/:id",
+      name: "forum",
+      component: PageForum,
       props: true
     },
     {

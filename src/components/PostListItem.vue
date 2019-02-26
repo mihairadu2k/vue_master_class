@@ -17,7 +17,7 @@
         </div>
       </div>
 
-      <div class="post-date text-faded">6 hours ago</div>
+      <AppDate class="post-date text-faded" :date="post.publishedAt"> </AppDate>
     </div>
   </div>
 </template>
@@ -31,6 +31,7 @@ export default {
       required: true
     }
   },
+  components: {},
   computed: {
     user() {
       return SourceData.users[this.post.userId];

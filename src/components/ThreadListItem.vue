@@ -8,8 +8,7 @@
       </p>
       <p class="text-faded text-xsmall">
         By
-        <a href="#">{{ user.name }}</a>
-        , {{ new Date(thread.publishedAt) }}.
+        <a href="#">{{ user.name }}</a>, <AppDate :date="thread.publishedAt"></AppDate>.
       </p>
     </div>
 

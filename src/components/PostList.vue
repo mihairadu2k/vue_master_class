@@ -11,6 +11,7 @@
 
 <script>
 import PostListItem from "./PostListItem.vue";
+
 export default {
   name: "PostList",
   components: { PostListItem },
@@ -22,7 +23,8 @@ export default {
       type: Array,
       required: true
     }
-  }
+  },
+
 };
 </script>
 

@@ -1,25 +1,23 @@
 <template>
   <div class="col-full">
     <h1>Welcome to the forum</h1>
-    <ThreadList :threads="threads"/>
+    <CategoryList :categories="categories" />
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import sourceData from "@/data.json";
-console.log(sourceData)
-import ThreadList from "@/components/ThreadList.vue";
+console.log(sourceData);
+import CategoryList from "@/components/CategoryList.vue";
 export default {
   name: "home",
   components: {
-    ThreadList
+    CategoryList
   },
   data() {
     return {
-      threads: Object.values(sourceData.threads),
-      posts: sourceData.posts,
-      users: sourceData.users
+      categories: Object.values(sourceData.categories)
     };
   }
 };

@@ -5,12 +5,6 @@ module.exports = {
     node: true
   },
 
-  extends: [
-    "plugin:vue/essential",
-    "plugin:prettier/recommended", // we added this line
-    "@vue/prettier"
-  ],
-
   rules: {
     'no-console': 'off',
     'no-debugger': 'off'

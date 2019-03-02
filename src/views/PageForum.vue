@@ -17,16 +17,16 @@
 
           <div class="forum-listing">
             <div class="forum-details">
-              <a href="#" class="forum-name">{{forum.name}}</a>
+              <a href="#" class="forum-name">{{ forum.name }}</a>
 
               <p class="forum-description ">
-               {{forum.description}}
+                {{ forum.description }}
               </p>
             </div>
 
             <div class="threads-count">
               <p class="count text-lead">1</p>
-              {{Object.values(forum.threads).length}}
+              {{ Object.values(forum.threads).length }}
             </div>
 
             <div class="last-thread">
@@ -80,7 +80,7 @@ export default {
 </script>
 
 <style scoped>
-  .forum-wrapper {
-    width: 100%;
-    }
+.forum-wrapper {
+  width: 100%;
+}
 </style>

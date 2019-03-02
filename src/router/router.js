@@ -4,11 +4,14 @@ import Home from "@/views/Home.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import PageThreadShow from "@/views/PageThreadShow.vue";
 import PageForum from "@/views/PageForum.vue";
+import Category from "@/views/PageCategory.vue";
+
 Vue.use(Router);
 
 export default new Router({
   mode: "history",
-  routes: [{
+  routes: [
+    {
       path: "/",
       name: "home",
       component: Home
@@ -26,9 +29,15 @@ export default new Router({
       props: true
     },
     {
+      path: "/category/:id",
+      props: true,
+      name: "category",
+      component: Category
+    },
+    {
       path: "*",
       component: PageNotFound,
-      name:"not-found"
+      name: "not-found"
     }
   ]
 });

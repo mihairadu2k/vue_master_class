@@ -34,7 +34,6 @@ requireComponent.keys().forEach(fileName => {
   );
 });
 
-
 Vue.config.productionTip = false;
 
 new Vue({

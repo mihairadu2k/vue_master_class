@@ -33,7 +33,7 @@ export default {
   components: {},
   computed: {
     user() {
-      return this.$store.state.SourceData.users[this.post.userId];
+      return this.$store.state.users[this.post.userId];
     },
     userPostsCount() {
       return Object.keys(this.user.posts).length;

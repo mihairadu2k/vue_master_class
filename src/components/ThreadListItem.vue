@@ -53,7 +53,7 @@ export default {
       return `${Object.keys(this.thread.posts).length - 1} replies`;
     },
     users() {
-      return this.$store.state.SourceData.users;
+      return this.$store.state.users;
     },
     user() {
       return this.users[this.thread.userId];

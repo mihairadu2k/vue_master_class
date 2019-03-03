@@ -26,7 +26,7 @@
 
             <div class="threads-count">
               <p class="count text-lead">1</p>
-              {{ Object.values(forum.threads).length }}
+              {{ Object.values(forum.threads).length === 0  ? 0 :  Object.values(forum.threads).length}}
             </div>
 
             <div class="last-thread">
@@ -67,10 +67,10 @@ export default {
   components: { ThreadList },
   computed: {
     forum() {
-      return this.$store.state.SourceData.forums[this.id];
+      return this.$store.state.forums[this.id];
     },
     threads() {
-      return Object.values(this.$store.state.SourceData.threads).filter(
+      return Object.values(this.$store.state.threads).filter(
         thread => thread.forumId === this.id
       );
     }

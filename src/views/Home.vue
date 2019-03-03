@@ -1,5 +1,5 @@
 <template>
-  <div class="col-full">
+  <div class="col-full push-top">
     <h1>Welcome to the forum</h1>
     <CategoryList :categories="categories" />
   </div>
@@ -16,7 +16,7 @@ export default {
 
   computed: {
     categories() {
-      return Object.values(this.$store.state.SourceData.categories);
+      return Object.values(this.$store.state.categories);
     }
   }
 };

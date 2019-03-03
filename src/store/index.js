@@ -5,18 +5,19 @@ Vue.use(Vuex);
 
 export default new Vuex.Store({
   state: {
-    SourceData
+    ...SourceData,
+    authId: "VXjpr2WHa8Ux4Bnggym8QFLdv5C3"
   },
   mutations: {
     SET_POST(state, { post, postId }) {
-      Vue.set(state.SourceData.posts, postId, post);
+      Vue.set(state.posts, postId, post);
     },
     APPEND_POST_TO_THREAD(state, { postId, threadId }) {
-      const threads = state.SourceData.threads[threadId].posts;
+      const threads = state.threads[threadId].posts;
       Vue.set(threads, postId, postId);
     },
     APPEND_POST_TO_USER(state, { postId, userId }) {
-      const user = state.SourceData.users[userId];
+      const user = state.users[userId];
       Vue.set(user.posts, postId, postId);
     }
   },
@@ -36,6 +37,13 @@ export default new Vuex.Store({
       // set the post
       // append the post to the thread
       // append the post to the user
+    },
+
+
+  },
+   getters: {
+      authUser(state) {
+        return state.users[state.authId];
+      }
     }
-  }
 });

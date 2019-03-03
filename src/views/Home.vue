@@ -7,18 +7,17 @@
 
 <script>
 // @ is an alias to /src
-import sourceData from "@/data.json";
-console.log(sourceData);
 import CategoryList from "@/components/CategoryList.vue";
 export default {
   name: "home",
   components: {
     CategoryList
   },
-  data() {
-    return {
-      categories: Object.values(sourceData.categories)
-    };
+
+  computed: {
+    categories() {
+      return Object.values(this.$store.state.SourceData.categories);
+    }
   }
 };
 </script>

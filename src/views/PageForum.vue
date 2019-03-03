@@ -56,7 +56,6 @@
 
 <script>
 import ThreadList from "../components/ThreadList";
-import SourceData from "@/data.json";
 export default {
   name: "PageForum",
   props: {
@@ -68,10 +67,10 @@ export default {
   components: { ThreadList },
   computed: {
     forum() {
-      return SourceData.forums[this.id];
+      return this.$store.state.SourceData.forums[this.id];
     },
     threads() {
-      return Object.values(SourceData.threads).filter(
+      return Object.values(this.$store.state.SourceData.threads).filter(
         thread => thread.forumId === this.id
       );
     }

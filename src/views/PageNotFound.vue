@@ -4,9 +4,11 @@
     <p :class="$style.text_large">Oops! There is nothing here!</p>
     <p :class="$style.text_large">Or is it?</p>
     <p :class="$style.text_large">...</p>
-    <br/>
+    <br />
     <div :class="$style.go_home_link">
-      <router-link :class="$style['go_home_link--link']" :to="{ name: 'home' }">Just go home! Fucker!</router-link>
+      <router-link :class="$style['go_home_link--link']" :to="{ name: 'home' }"
+        >Just go home! Fucker!</router-link
+      >
     </div>
   </div>
 </template>
@@ -32,14 +34,14 @@ export default {
 }
 .mistery {
   color: orangered;
-  animation: 3s ease 2s normal forwards infinite mistery_animation;;
+  animation: 3s ease 2s normal forwards infinite mistery_animation;
 }
 
 @keyframes mistery_animation {
   0% {
     opacity: 0.15;
   }
-  50%{
+  50% {
     opacity: 1;
   }
 
@@ -48,7 +50,7 @@ export default {
   }
 
   100% {
-    opacity:1;
+    opacity: 1;
   }
 }
 
@@ -60,10 +62,10 @@ export default {
     padding: 10px 20px;
     background-color: #1d2b43;
     color: white;
-    box-shadow: 1px 1px 3px rgba(0,0,0, 0.2);
+    box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     border-radius: 3px;
 
-    &hover{
+    &hover {
       box-shadow: 2px 2px 6px rgba(0, 0, 0, 0.6);
     }
   }

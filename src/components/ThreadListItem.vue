@@ -2,13 +2,16 @@
   <div class="thread">
     <div>
       <p>
-        <router-link :to="{name: 'thread-show', params: {id: thread['.key']}}">
+        <router-link
+          :to="{ name: 'thread-show', params: { id: thread['.key'] } }"
+        >
           {{ thread.title }}
         </router-link>
       </p>
       <p class="text-faded text-xsmall">
         By
-        <a href="#">{{ user.name }}</a>, <AppDate :date="thread.publishedAt"></AppDate>.
+        <a href="#">{{ user.name }}</a
+        >, <AppDate :date="thread.publishedAt"></AppDate>.
       </p>
     </div>
 
@@ -18,11 +21,11 @@
       </p>
 
       <!--<img-->
-        <!--class="avatar-medium"-->
-        <!--src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png"-->
-        <!--alt-->
+      <!--class="avatar-medium"-->
+      <!--src="http://i0.kym-cdn.com/photos/images/facebook/000/010/934/46623-batman_pikachu_super.png"-->
+      <!--alt-->
       <!--&gt;-->
-      <!-- 
+      <!--
       <div>
         <p class="text-xsmall">
           <a href="profile.html">Bruce Wayne</a>
@@ -34,13 +37,10 @@
 </template>
 
 <script>
-  import SourceData from "@/data.json"
 export default {
   name: "threadListItem",
-  data () {
-    return {
-      users: SourceData.users,
-    }
+  data() {
+    return {};
   },
   props: {
     thread: {
@@ -50,14 +50,16 @@ export default {
   },
   computed: {
     repliesCount() {
-      return `${ Object.keys(this.thread.posts).length - 1 } replies`
+      return `${Object.keys(this.thread.posts).length - 1} replies`;
     },
-    user () {
-      return this.users[this.thread.userId]
+    users() {
+      return this.$store.state.SourceData.users;
+    },
+    user() {
+      return this.users[this.thread.userId];
     }
   }
 };
 </script>
 
-<style>
-</style>
+<style></style>

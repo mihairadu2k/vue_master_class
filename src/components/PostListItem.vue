@@ -23,7 +23,6 @@
 </template>
 
 <script>
-import SourceData from "@/data.json";
 export default {
   props: {
     post: {
@@ -34,7 +33,7 @@ export default {
   components: {},
   computed: {
     user() {
-      return SourceData.users[this.post.userId];
+      return this.$store.state.SourceData.users[this.post.userId];
     },
     userPostsCount() {
       return Object.keys(this.user.posts).length;

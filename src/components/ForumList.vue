@@ -19,12 +19,10 @@ export default {
   props: {
     forums: {
       type: Array,
-      required: true,
+      required: true
     }
   }
 };
 </script>
 
-<style scoped>
-
-</style>
+<style scoped></style>

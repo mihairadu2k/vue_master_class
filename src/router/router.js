@@ -4,6 +4,7 @@ import Home from "@/views/Home.vue";
 import PageNotFound from "@/views/PageNotFound.vue";
 import PageThreadShow from "@/views/PageThreadShow.vue";
 import PageForum from "@/views/PageForum.vue";
+import Profile from "@/views/PageProfile.vue";
 import Category from "@/views/PageCategory.vue";
 
 Vue.use(Router);
@@ -15,6 +16,12 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home
+    },
+    {
+      path: "/me",
+      name: "profile",
+      component: Profile,
+      props: true
     },
     {
       path: "/thread/:id",

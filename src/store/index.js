@@ -19,6 +19,9 @@ export default new Vuex.Store({
     APPEND_POST_TO_USER(state, { postId, userId }) {
       const user = state.users[userId];
       Vue.set(user.posts, postId, postId);
+    },
+    SET_USER(state, { user, userId }) {
+      Vue.set(state.posts, userId, user);
     }
   },
   actions: {
@@ -34,16 +37,14 @@ export default new Vuex.Store({
         userId: post.userId,
         postId
       });
-      // set the post
-      // append the post to the thread
-      // append the post to the user
     },
-
-
-  },
-   getters: {
-      authUser(state) {
-        return state.users[state.authId];
-      }
+    updateUser({ commit }, user) {
+      commit("SET_USER", { userId: user[".key"], user });
     }
+  },
+  getters: {
+    authUser(state) {
+      return state.users[state.authId];
+    }
+  }
 });

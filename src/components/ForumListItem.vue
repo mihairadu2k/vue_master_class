@@ -28,7 +28,9 @@
 </template>
 
 <script>
-export default {
+  import {countObjectProperties} from "@/utils/index";
+
+  export default {
   props: {
     forum: {
       required: true,
